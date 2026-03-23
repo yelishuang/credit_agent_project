@@ -1,0 +1,31 @@
+# ===== ML 风控模型 =====
+lightgbm==4.6.0
+scikit-learn==1.7.2
+joblib==1.5.3
+pandas==2.3.3
+polars==1.39.3
+numpy==1.26.4
+
+# ===== RAG =====
+faiss-gpu==1.7.2
+sentence-transformers==5.3.0
+
+# ===== SFT 微调 =====
+torch==2.10.0
+transformers==5.3.0
+peft==0.18.1
+trl==0.29.1
+accelerate==1.13.0
+datasets==4.8.3
+flash_attn==2.8.3
+
+# ===== MCP =====
+mcp==1.26.0
+uvicorn==0.42.0
+
+# ===== 评测 / 数据生成 =====
+anthropic==0.86.0
+
+# ===== 工具 =====
+tqdm==4.67.3
+matplotlib==3.10.8

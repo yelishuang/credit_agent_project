@@ -1,0 +1,48 @@
+# --- 1. 模型权重与大文件 (必须忽略) ---
+data/base_models/
+outputs/lora/
+outputs/qwen2.5_14b_lora/
+outputs/qwen2.5_14b_lora_sanity/
+outputs/credit_risk_lgb/
+*.safetensors
+*.pt
+*.bin
+*.pth
+*.joblib
+*.index
+*.gguf
+
+# --- 2. 数据集与生成数据 ---
+data/kaggle_raw/
+outputs/sft_data/
+outputs/sft_data_curated/
+outputs/sft_data_selected/
+outputs/rag_index/
+
+# --- 3. Python 环境与缓存 ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+.env
+.eggs/
+*.egg-info/
+
+# --- 4. 临时文件与日志 ---
+temp/
+logs/
+*.log
+.DS_Store
+.Trash-*/
+
+# --- 5. IDE ---
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- 6. Claude Code ---
+.claude/
+CLAUDE.md
