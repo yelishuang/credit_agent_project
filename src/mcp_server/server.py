@@ -17,6 +17,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..
 if PROJECT_ROOT not in sys.path:
     sys.path.insert(0, PROJECT_ROOT)
 
+from config import RAG_INDEX_PATH, RAG_CHUNKS_PATH, EMBEDDING_MODEL
 from mcp.server.fastmcp import FastMCP
 
 logging.basicConfig(level=logging.INFO)
@@ -103,10 +104,7 @@ def _get_retriever():
     global _retriever
     if _retriever is None:
         from src.rag.build_rag_index import load_retriever
-        index_path = os.path.join(PROJECT_ROOT, "outputs", "rag_index", "credit_risk.index")
-        chunks_path = os.path.join(PROJECT_ROOT, "outputs", "rag_index", "chunks.json")
-        model_name = "BAAI/bge-m3"
-        _retriever = load_retriever(index_path, chunks_path, model_name)
+        _retriever = load_retriever(str(RAG_INDEX_PATH), str(RAG_CHUNKS_PATH), EMBEDDING_MODEL)
     return _retriever
 
 

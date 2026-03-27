@@ -316,7 +316,7 @@ def main():
                         help="目标生成条数 (默认使用各类型预设值)")
     parser.add_argument("--model", default="claude-sonnet-4-6",
                         help="Claude 模型 ID")
-    parser.add_argument("--output_dir", default=str(Path(__file__).parent.parent.parent / "outputs" / "sft_data"),
+    parser.add_argument("--output_dir", default=str(Path(__file__).parent.parent.parent / "outputs" / "sft_data" / "raw"),
                         help="输出目录")
     parser.add_argument("--concurrency", type=int, default=10,
                         help="并发数 (默认 10)")

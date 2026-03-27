@@ -5,7 +5,9 @@
 import joblib
 from pathlib import Path
 
-_MODEL_DIR = Path(__file__).parent.parent.parent / "outputs" / "credit_risk_lgb"
+from config import LGB_MODELS_DIR
+
+_MODEL_DIR = LGB_MODELS_DIR
 
 _cache = {}
 

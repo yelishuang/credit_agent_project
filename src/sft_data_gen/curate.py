@@ -14,8 +14,8 @@ from pathlib import Path
 from collections import defaultdict
 
 # ============ 配置 ============
-INPUT_DIR = "outputs/sft_data"
-OUTPUT_DIR = "outputs/sft_data_curated"
+INPUT_DIR = "outputs/sft_data/raw"
+OUTPUT_DIR = "outputs/sft_data/curated"
 VALID_TOOLS = {"query_user_credit_data", "predict_risk_score", "search_knowledge_base"}
 TRAIN_RATIO = 0.9
 RANDOM_SEED = 42

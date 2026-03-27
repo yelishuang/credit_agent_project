@@ -12,11 +12,9 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 from peft import PeftModel
 
-logger = logging.getLogger(__name__)
+from config import BASE_MODEL_PATH, LORA_ADAPTER_PATH
 
-PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
-BASE_MODEL_PATH = os.path.join(PROJECT_ROOT, "data", "base_models", "Qwen2.5-14B-Instruct")
-LORA_ADAPTER_PATH = os.path.join(PROJECT_ROOT, "outputs", "qwen2.5_14b_lora", "20260323_150000")
+logger = logging.getLogger(__name__)
 
 MAX_TURNS = 6
 
@@ -57,16 +55,19 @@ class CreditAgent:
 
     def load_model(self):
         """加载基座模型 + LoRA adapter 并合并。"""
-        logger.info(f"加载 tokenizer: {BASE_MODEL_PATH}")
-        self.tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_PATH, trust_remote_code=True)
+        model_path = str(BASE_MODEL_PATH)
+        adapter_path = str(LORA_ADAPTER_PATH)
 
-        logger.info(f"加载基座模型: {BASE_MODEL_PATH}")
+        logger.info(f"加载 tokenizer: {model_path}")
+        self.tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+
+        logger.info(f"加载基座模型: {model_path}")
         self.model = AutoModelForCausalLM.from_pretrained(
-            BASE_MODEL_PATH, torch_dtype=torch.bfloat16, device_map="auto", trust_remote_code=True,
+            model_path, torch_dtype=torch.bfloat16, device_map="auto", trust_remote_code=True,
         )
 
-        logger.info(f"加载 LoRA adapter: {LORA_ADAPTER_PATH}")
-        self.model = PeftModel.from_pretrained(self.model, LORA_ADAPTER_PATH)
+        logger.info(f"加载 LoRA adapter: {adapter_path}")
+        self.model = PeftModel.from_pretrained(self.model, adapter_path)
         self.model = self.model.merge_and_unload()
         self.model.eval()
         logger.info("模型加载完成")

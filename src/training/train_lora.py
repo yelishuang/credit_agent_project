@@ -126,11 +126,11 @@ def load_model_and_tokenizer(model_path: str, lora_config: LoraConfig):
 def parse_args():
     p = argparse.ArgumentParser()
     p.add_argument("--model_path", type=str, default="data/base_models/Qwen2.5-14B-Instruct")
-    p.add_argument("--data_path", type=str, default="outputs/sft_data_selected/train.jsonl",
+    p.add_argument("--data_path", type=str, default="outputs/sft_data/selected/train.jsonl",
                     help="Comma-separated JSONL paths")
-    p.add_argument("--val_data_path", type=str, default="outputs/sft_data_selected/val.jsonl",
+    p.add_argument("--val_data_path", type=str, default="outputs/sft_data/selected/val.jsonl",
                     help="Validation JSONL path (optional)")
-    p.add_argument("--output_dir", type=str, default="outputs/qwen2.5_14b_lora")
+    p.add_argument("--output_dir", type=str, default="outputs/models/lora")
     p.add_argument("--run_name", type=str, default=None,
                     help="Experiment name. Output goes to output_dir/run_name/. Auto-generates timestamp if not set.")
     p.add_argument("--max_length", type=int, default=2048, help="Max token length per sample (data range: 485-2048)")

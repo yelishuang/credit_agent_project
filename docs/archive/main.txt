@@ -1,1 +1,0 @@
-总结：保持MD格式即可，不需要转TXT。加载时用markdown-aware的splitter（按##标题切分）效果会比纯文本切分更好。你的RAG目录当前状态已经是可以直接接入pipeline的 。

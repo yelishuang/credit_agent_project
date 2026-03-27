@@ -1,0 +1,7 @@
+# 环境 credit_agent_eval（评测推理）
+# conda activate credit_agent_eval
+# pip install -r requirements_eval_min.txt
+
+vllm>=0.18.0
+anthropic==0.86.0
+numpy>=1.26.4

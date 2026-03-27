@@ -7,8 +7,10 @@
 import csv
 from pathlib import Path
 
+from config import FEATURE_DEFS_PATH as _FEATURE_DEFS_PATH
+
 # ── 特征定义文件 ─────────────────────────────────────────────────────
-FEATURE_DEFS_PATH = Path(__file__).parent.parent.parent / "data" / "kaggle_raw" / "home-credit-credit-risk-model-stability" / "feature_definitions.csv"
+FEATURE_DEFS_PATH = _FEATURE_DEFS_PATH
 
 # ── 风险等级阈值 ─────────────────────────────────────────────────────
 RISK_THRESHOLDS = {

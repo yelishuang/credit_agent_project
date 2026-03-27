@@ -1,3 +1,7 @@
+# 环境 credit_agent（训练 + MCP + 数据生成）
+# conda activate credit_agent
+# pip install -r requirements.txt
+
 # ===== ML 风控模型 =====
 lightgbm==4.6.0
 scikit-learn==1.7.2
@@ -23,7 +27,7 @@ flash_attn==2.8.3
 mcp==1.26.0
 uvicorn==0.42.0
 
-# ===== 评测 / 数据生成 =====
+# ===== 数据生成 =====
 anthropic==0.86.0
 
 # ===== 工具 =====

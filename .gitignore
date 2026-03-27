@@ -1,9 +1,6 @@
 # --- 1. 模型权重与大文件 (必须忽略) ---
 data/base_models/
-outputs/lora/
-outputs/qwen2.5_14b_lora/
-outputs/qwen2.5_14b_lora_sanity/
-outputs/credit_risk_lgb/
+outputs/models/
 *.safetensors
 *.pt
 *.bin
@@ -15,9 +12,8 @@ outputs/credit_risk_lgb/
 # --- 2. 数据集与生成数据 ---
 data/kaggle_raw/
 outputs/sft_data/
-outputs/sft_data_curated/
-outputs/sft_data_selected/
 outputs/rag_index/
+outputs/evaluation/
 
 # --- 3. Python 环境与缓存 ---
 __pycache__/
@@ -43,6 +39,11 @@ logs/
 *.swp
 *.swo
 
-# --- 6. Claude Code ---
+# --- 6. 开发过程文档与个人文件 ---
+docs/
+简历_CreditAgent项目描述.txt
+tools/
+
+# --- 7. Claude Code ---
 .claude/
 CLAUDE.md

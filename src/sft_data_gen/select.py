@@ -10,6 +10,7 @@ SFT 数据遴选脚本
 import json
 import re
 import os
+import sys
 import random
 import numpy as np
 from pathlib import Path
@@ -19,11 +20,18 @@ from transformers import AutoTokenizer
 os.environ["HF_HUB_OFFLINE"] = "1"
 os.environ["TRANSFORMERS_OFFLINE"] = "1"
 
-CURATED_DIR = "outputs/sft_data_curated"
-RAW_DIR = "outputs/sft_data"
-OUTPUT_DIR = "outputs/sft_data_selected"
-MODEL_PATH = "/home/dell/credit_agent_project/data/base_models/Qwen2.5-14B-Instruct"
-EMBED_MODEL = "/home/dell/.cache/huggingface/hub/models--BAAI--bge-m3/snapshots/5617a9f61b028005a4858fdac845db406aefb181"
+# 确保项目根目录在 sys.path
+_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent.parent)
+if _PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, _PROJECT_ROOT)
+
+from config import BASE_MODEL_PATH, EMBEDDING_MODEL, SFT_DATA_RAW_DIR, SFT_DATA_CURATED_DIR, SFT_DATA_SELECTED_DIR
+
+CURATED_DIR = str(SFT_DATA_CURATED_DIR)
+RAW_DIR = str(SFT_DATA_RAW_DIR)
+OUTPUT_DIR = str(SFT_DATA_SELECTED_DIR)
+MODEL_PATH = str(BASE_MODEL_PATH)
+EMBED_MODEL = EMBEDDING_MODEL
 RANDOM_SEED = 42
 MAX_LENGTH = 2048  # 训练时的 max_length
 

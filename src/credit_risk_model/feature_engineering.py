@@ -11,8 +11,10 @@ import numpy as np
 import pandas as pd
 import polars as pl
 
+from config import KAGGLE_PARQUET_DIR
+
 # 默认数据目录
-DEFAULT_DATA_DIR = Path(__file__).parent.parent.parent / "data" / "kaggle_raw" / "home-credit-credit-risk-model-stability" / "parquet_files"
+DEFAULT_DATA_DIR = KAGGLE_PARQUET_DIR
 
 
 # ── Pipeline: 类型转换、日期处理、列过滤 ──────────────────────────────
